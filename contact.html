@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Palatino">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Avenir">
+	<link rel="stylesheet" type="text/css" href="contact.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+</head>
+
+<body>
+	<div id="nav-wrapper">
+		<div id="nav-left">
+			<a href="https://www.fb.com/felipesodre"><img src="img/fb.png" class="imgnav"></a>
+			<a href="https://twitter.com"><img src="img/twitter.png" class="imgnav"></a>
+			<a href="https://www.instagram.com/fs_pm/"> <img src="img/insta.png" class="imgnav"></a>
+		</div>
+		<div id="nav-right">
+			<a href="index.html" class="font-brown big-font">Home</a>
+			<a href="about.html" class="font-brown big-font">About</a>
+			<a href="contact.html" class="font-brown big-font">Contact</a>
+		</div>
+	</div>
+
+	<div class="main-wrap">
+		<div id="contact-page" class="flexrow">
+			<div>
+				<img src="img/coffee_talk.jpg" class="img-contact"> 
+			</div>
+			<div class="space"></div>
+			<div id="div-form">
+				<form id="contact" action="javascript:sendEmail()">
+					<fieldset>
+						<input placeholder="Your name" type="text" tabindex="1" id="name" required autofocus>
+					</fieldset>
+					<fieldset>
+						<input placeholder="Your Email Address" type="email" id="email" tabindex="2" required>
+					</fieldset>
+					<fieldset>
+						<input placeholder="Your Phone Number (optional)" type="tel" id="phone" tabindex="3">
+					</fieldset>
+					<fieldset>
+						<textarea placeholder="Type your message here...." tabindex="5" id="message" required></textarea>
+					</fieldset>
+					<fieldset>
+						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<script>
+	function sendEmail(){
+		var message = document.getElementById('message').value;
+		var from = document.getElementById('email').value;
+		var name = document.getElementById('name').value;
+		var phone = document.getElementById('phone').value;
+		var msg = "This is a test from getcoding \n message:" + message + "\n name:" + name + "\n phone" + phone;
+
+		Email.send({
+		SecureToken : "C973D7AD-F097-4B95-91F4-40ABC5567812",
+	    Host : "smtp.gmail.com",
+	    Username : "",
+	    Password : "",
+	    To : "felipesodre20@gmail.com",
+	    From :  "felipesodre20@gmail.com",
+	    Subject : "Get-coding",
+	    Body :  "felipesodre20@gmail.com"
+		}).then(
+		  message => alert(message)
+		);
+	}
+</script>
+</body>
+
+</html>
